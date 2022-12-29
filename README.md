@@ -8,4 +8,4 @@ This is a simple *keystroke injection* script designed for grabbing user's wifi 
 ## Implementation
 Script uses standard delay and keystoke commands. Inserting the bad usb will open PowerShell window. Credentials are obtained using the following simplified script:
 
-Can be replaced with [https://shop.hak5.org/blogs/payloads](Hak5's one-liner).
+Can be replaced with [Hak5's one-liner](https://shop.hak5.org/blogs/payloads).
